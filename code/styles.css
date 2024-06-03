@@ -341,6 +341,9 @@ footer {
     .blog-grid {
         flex-direction: row;
         flex-wrap: wrap;
+        justify-content: space-between;
+        padding-left: 2%;
+        padding-right: 2%;
     }
 
     .blog-post {
@@ -354,5 +357,10 @@ footer {
 
     .blog-content {
         width: 100%;
+        align-items: center;
     }
+}
+.filter.active {
+    font-weight: bold;
+    text-decoration: underline;
 }
