@@ -18,16 +18,21 @@ document.addEventListener('DOMContentLoaded', (event) => {
     filters.forEach(filter => {
         filter.addEventListener('click', (e) => {
             e.preventDefault();
-            
+
             filters.forEach(f => f.classList.remove('active'));
-            
             filter.classList.add('active');
-            
+
             const filterType = filter.getAttribute('data-filter');
+            let count = 0;
 
             teaItems.forEach(item => {
                 if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
-                    item.style.display = 'block';
+                    if (count < 4) {
+                        item.style.display = 'block';
+                        count++;
+                    } else {
+                        item.style.display = 'none';
+                    }
                 } else {
                     item.style.display = 'none';
                 }
@@ -35,8 +40,8 @@ document.addEventListener('DOMContentLoaded', (event) => {
         });
     });
 });
+
 document.querySelector('.cta').addEventListener('click', function(e) {
     // Якщо тут є e.preventDefault(), то це блокує стандартну поведінку посилання
     // e.preventDefault();
 });
-
