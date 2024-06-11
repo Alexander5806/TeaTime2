@@ -42,6 +42,5 @@ document.addEventListener('DOMContentLoaded', (event) => {
 });
 
 document.querySelector('.cta').addEventListener('click', function(e) {
-    // Якщо тут є e.preventDefault(), то це блокує стандартну поведінку посилання
-    // e.preventDefault();
+
 });
