@@ -15,6 +15,25 @@ document.addEventListener('DOMContentLoaded', (event) => {
 
     shuffleBlogPosts();
 
+    function updateTeaDisplay(filterType) {
+        let count = 0;
+        teaItems.forEach(item => {
+            if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
+                if (count < 4) {
+                    item.style.display = 'block';
+                    count++;
+                } else {
+                    item.style.display = 'none';
+                }
+            } else {
+                item.style.display = 'none';
+            }
+        });
+    }
+
+    // Show only the first 4 tea items initially
+    updateTeaDisplay('all');
+
     filters.forEach(filter => {
         filter.addEventListener('click', (e) => {
             e.preventDefault();
@@ -23,24 +42,7 @@ document.addEventListener('DOMContentLoaded', (event) => {
             filter.classList.add('active');
 
             const filterType = filter.getAttribute('data-filter');
-            let count = 0;
-
-            teaItems.forEach(item => {
-                if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
-                    if (count < 4) {
-                        item.style.display = 'block';
-                        count++;
-                    } else {
-                        item.style.display = 'none';
-                    }
-                } else {
-                    item.style.display = 'none';
-                }
-            });
+            updateTeaDisplay(filterType);
         });
     });
-});
-
-document.querySelector('.cta').addEventListener('click', function(e) {
-
 });
