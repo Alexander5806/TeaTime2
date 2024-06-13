@@ -44,3 +44,30 @@ nav ul li a {
     color: #333;
     font-weight: bold;
 }
+footer {
+    text-align: center;
+    padding: 10px 0;
+    background-color: #333;
+    color: #fff;
+}
+.hero h2, .hero p {
+    color: white;
+  }
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    height: 50px;
+    margin-right: 10px;
+}
+
+.logo-text h1, .logo-text p {
+    margin: 0;
+}
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
