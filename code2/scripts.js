@@ -1,23 +1,25 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const filters = document.querySelectorAll('.filter');
     const teaItems = document.querySelectorAll('.tea-item');
-    const blogGrid = document.querySelector('.blog-grid');
+    const teaGrid = document.querySelector('.tea-grid');
 
-    function shuffleBlogPosts() {
-        const blogPosts = Array.from(blogGrid.children);
-        for (let i = blogPosts.length - 1; i > 0; i--) {
+    function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
-            [blogPosts[i], blogPosts[j]] = [blogPosts[j], blogPosts[i]];
+            [array[i], array[j]] = [array[j], array[i]];
         }
-        blogGrid.innerHTML = '';
-        blogPosts.forEach(post => blogGrid.appendChild(post));
+        return array;
     }
-
-    shuffleBlogPosts();
 
     function updateTeaDisplay(filterType) {
         let count = 0;
-        teaItems.forEach(item => {
+        let itemsArray = Array.from(teaItems);
+
+        if (filterType === 'all') {
+            itemsArray = shuffleArray(itemsArray);
+        }
+
+        itemsArray.forEach(item => {
             if (filterType === 'all' || item.getAttribute('data-type') === filterType) {
                 if (count < 4) {
                     item.style.display = 'block';
