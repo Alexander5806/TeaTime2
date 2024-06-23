@@ -57,3 +57,23 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
+// Get the modal window and the button to open it
+var modal = document.querySelector('.modal');
+var openModalButton = document.querySelector('.open-modal');
+
+// Add an event listener to the button to open the modal window
+openModalButton.addEventListener('click', function() {
+  modal.style.display = 'block';
+});
+
+// Add an event listener to the close button to close the modal window
+document.querySelector('.close').addEventListener('click', function() {
+  modal.style.display = 'none';
+});
+
+// Add an event listener to the modal window to close it when the user clicks outside of it
+window.addEventListener('click', function(event) {
+  if (event.target == modal) {
+    modal.style.display = 'none';
+  }
+});
